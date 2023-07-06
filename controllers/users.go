@@ -83,16 +83,25 @@ func (u *Users) Create(w http.ResponseWriter, r *http.Request) {
 		u.NewView.Render(w, r, &vd)
 	}
 
-	resp, err := http.Post("https://APINEFT.joangoma.repl.co/api/users", "application/json", bytes.NewBuffer(personJSON))
-	if err != nil {
-		vd.Alert = &views.Alert{
+  req, err := http.NewRequest(http.MethodPut, "https://test.joan-goma.repl.co/v1/auth", bytes.NewBuffer(personJSON))
+    if err != nil {
+        // handle error
+    }
+  
+    req.Header.Set("Content-Type", "application/json")
+	
+   client := &http.Client{}
+    resp, err := client.Do(req)
+    if err != nil {
+    vd.Alert = &views.Alert{
 			Level:   views.AlertLvlError,
 			Message: views.AlertMsgGeneric,
 		}
 		errorController.ErrorLogger.Println("Error sending request login")
 		u.NewView.Render(w, r, &vd)
 		return
-	}
+    }
+    defer resp.Body.Close()
 
 	if resp.StatusCode != 201 {
 		answer, err := readAPIAnswer(resp)
@@ -153,7 +162,7 @@ func (u *Users) Login(w http.ResponseWriter, r *http.Request) {
 		u.LoginView.Render(w, r, &vd)
 	}
 
-	resp, err := http.Post("https://APINEFT.joangoma.repl.co/api/login", "application/json", bytes.NewBuffer(personJSON))
+	resp, err := http.Post("https://test.joan-goma.repl.co/api/login", "application/json", bytes.NewBuffer(personJSON))
 	if err != nil {
 		vd.Alert = &views.Alert{
 			Level:   views.AlertLvlError,

@@ -63,6 +63,7 @@ func readAPIAnswer(resp *http.Response) (Response, error) {
 	var answer Response
 	err = json.Unmarshal(bodyBytes, &answer)
 	if err != nil {
+    errorController.ErrorLogger.Println(string(bodyBytes))
 		errorController.ErrorLogger.Println("Error reading answer from answer request: ", err)
 		return Response{}, err
 	}
