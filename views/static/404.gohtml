@@ -1,0 +1,54 @@
+{{define "yield"}}
+ <!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <!-- Error page-->
+                <div class="misc-wrapper"><a class="brand-logo" href="/">
+                        <h2 class="brand-text text-primary ms-1">NEFT-SEC</h2>
+                    </a>
+                    <div class="misc-inner p-2 p-sm-3">
+                        <div class="w-100 text-center">
+                            <h2 class="mb-1">Page Not Found 🕵🏻‍♀️</h2>
+                            <p class="mb-2">Oops! 😖 The requested URL was not found on this server.</p><a class="btn btn-primary mb-2 btn-sm-block" href="/">Back to home</a><img class="img-fluid" src="https://jgdev.joangoma.repl.co/assets/images/pages/error-dark.svg" alt="Error page" />
+                        </div>
+                    </div>
+                </div>
+                <!-- / Error page-->
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="https://jgdev.joangoma.repl.co/assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="https://jgdev.joangoma.repl.co/assets/vendors/js/ui/jquery.sticky.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="https://jgdev.joangoma.repl.co/assets/js/core/app-menu.js"></script>
+    <script src="https://jgdev.joangoma.repl.co/assets/js/core/app.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <!-- END: Page JS-->
+
+    <script>
+        $(window).on('load', function() {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+        })
+    </script>
+{{end}}
