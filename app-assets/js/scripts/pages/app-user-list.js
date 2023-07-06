@@ -30,8 +30,8 @@ $(function () {
     select = $('.select2'),
     dtContact = $('.dt-contact'),
     statusObj = {
-      0: { title: 'Deshabilitado', class: 'badge-light-danger' },
-      1: { title: 'Activado', class: 'badge-light-success' }
+      false: { title: 'Deshabilitado', class: 'badge-light-danger' },
+      true: { title: 'Activado', class: 'badge-light-success' }
     };
 
   var userView = 'app-user-view-account.html';
@@ -54,7 +54,7 @@ $(function () {
       ajax: {
         type: "GET",
     dataType: "json",
-    url: "https://APINEFT.joangoma.repl.co/api/secured/users",
+    url: "https://test.joan-goma.repl.co/v1/secured/users",
     headers: {'neftAuth':getCookie()},
     dataSrc: '',
         complete: function (data) {
@@ -66,7 +66,7 @@ $(function () {
         // columns according to JSON
         { data: 'full_name' },
         { data: 'username' },
-        { data: 'role' },
+        { data: 'rolid' },
         { data: 'email' },
         { data: 'activated' },
         { data: 'photo' },
@@ -91,6 +91,9 @@ $(function () {
             var $username = full['username'],
               $full_name = full['full_name'],
               $image = full['photo'];
+            if ($full_name == "") {
+              $full_name = "Sr/a. Fantasma"
+            }
             if ($image) {
               // For Avatar image
               var $output =
@@ -134,7 +137,7 @@ $(function () {
           // User Role
           targets: 2,
           render: function (data, type, full, meta) {
-            var $role = full['role'];
+            var $role = full['rolid'];
             var roleBadgeObj = {
               1: feather.icons['circle'].toSvg({ class: 'font-medium-3 text-primary me-50' }),
               2: feather.icons['alert-triangle'].toSvg({ class: 'font-medium-3 text-warning me-50' }),
@@ -275,7 +278,10 @@ $(function () {
           display: $.fn.dataTable.Responsive.display.modal({
             header: function (row) {
               var data = row.data();
-              return 'Detalles de ' + data['name'];
+              if (data['full_name'] == "") {
+                data['full_name'] = "Sr/a. Fantasma"
+              }  
+              return 'Detalles de ' + data['full_name'];
             }
           }),
           type: 'column',
@@ -354,14 +360,14 @@ $(function () {
               .each(function (d, j) {
                 select.append(
                   '<option value="' +
-                    statusObj[1].title +
+                    statusObj[true].title +
                     '" class="text-capitalize">' +
-                    statusObj[1].title +
+                    statusObj[true].title +
                     '</option>' +
                   '<option value="' +
-                    statusObj[0].title +
+                    statusObj[false].title +
                     '" class="text-capitalize">' +
-                    statusObj[0].title +
+                    statusObj[false].title +
                     '</option>'
                 );
               });
@@ -378,11 +384,12 @@ $(function () {
           type: "POST",
           dataType: 'json',
           data: data,
-          url: "https://APINEFT.joangoma.repl.co/api/secured/users",
+          url: "https://test.joan-goma.repl.co/v1/secured/users",
           headers: {'neftAuth':getCookie()},
           statusCode: {
             201: handle201,
-            500: handle500
+            500: handle500,
+            400: handle500
           }
       });
       e.preventDefault();

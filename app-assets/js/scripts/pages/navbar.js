@@ -7,19 +7,23 @@ function getCookie() {
   setTimeout(function () {
     $.ajax({
           type: "GET",
-          dataType: 'json',
-          url: "https://APINEFT.joangoma.repl.co/api/secured/user",
+          url: "https://test.joan-goma.repl.co/v1/secured/user",
           headers: {'neftAuth':getCookie()},
           success: function (data) {
-            document.getElementById('userNameAPI').innerHTML = data.username;
-            toastr['success'](
+            if (data.username !== "") {
+              document.getElementById('userNameAPI').innerHTML = data.username;
+              toastr['success'](
               'You have successfully logged in to Vuexy. Now you can start to explore!',
               '👋 Welcome ' +data.username +'!',
-              {
-                closeButton: true,
-                tapToDismiss: false,
-              }
-            );
+                {
+                  closeButton: true,
+                  tapToDismiss: false,
+                }
+              );
+            } else {
+              document.getElementById('userNameAPI').innerHTML = "Sr/a. Fantasma";
+            }
+            
           }
       });
     
