@@ -13,6 +13,7 @@ import (
 	"neft.web/liro"
 	"neft.web/middleware"
 	"neft.web/rand"
+	"neft.web/views"
 )
 
 var (
@@ -27,6 +28,8 @@ func init() {
 }
 
 func main() {
+	views.InitTemplateController()
+	go controllers.ReadInput()
 	flag.Parse()
 	errorController.InitLog(debug)
 
@@ -114,7 +117,6 @@ func main() {
 	r.HandleFunc("/liro/users", requireUseMW.RequireUser(liroC.UsersList)).Methods("GET")
 
 	// Start server
-
 	if debug {
 		go middleware.PrintStats()
 	}

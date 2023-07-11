@@ -7,23 +7,23 @@ import (
 )
 
 type Liro struct {
-	Main     *views.View
-	UserList *views.View
+	LiroMain     *views.View
+	LiroUserList *views.View
 }
 
 func NewLiro() *Liro {
 	return &Liro{
-		Main:     views.NewView("dashboard", "liro/index"),
-		UserList: views.NewView("dashboard", "liro/listUsers"),
+			LiroMain:     views.Templates["LiroMain"].View,
+			LiroUserList: views.Templates["LiroUserList"].View,
 	}
 }
 
 // New GET /liro
 func (u *Liro) New(w http.ResponseWriter, r *http.Request) {
-	u.Main.Render(w, r, nil)
+	u.LiroMain.Render(w, r, nil)
 }
 
 // New GET /liro/users
 func (u *Liro) UsersList(w http.ResponseWriter, r *http.Request) {
-	u.UserList.Render(w, r, nil)
+	u.LiroUserList.Render(w, r, nil)
 }

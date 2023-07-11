@@ -22,7 +22,28 @@ func NewView(layout string, files ...string) *View {
 
 	addTemplatePath(files)
 	addTemplateExt(files)
-	files = append(files, layoutFiles()...)
+	files = append(files, LayoutFiles()...)
+	t, err := template.New("").Funcs(template.FuncMap{
+		"csrfField": func() (template.HTML, error) {
+			return "", errors.New("csrf is not implemented")
+		},
+	}).ParseFiles(files...)
+	if err != nil {
+		errorController.ErrorLogger.Println(err)
+		errorController.WD.Content = err.Error()
+		errorController.WD.Site = "Parsing templates"
+		errorController.WD.SendErrorWHWeb()
+		return nil
+	}
+
+	return &View{
+		Template: t,
+		Layout:   layout,
+	}
+}
+func NewReload(layout string, files ...string) *View {
+
+	files = append(files, LayoutFiles()...)
 	t, err := template.New("").Funcs(template.FuncMap{
 		"csrfField": func() (template.HTML, error) {
 			return "", errors.New("csrf is not implemented")
@@ -80,7 +101,7 @@ func (v *View) Render(w http.ResponseWriter, r *http.Request, data interface{}) 
 		return
 	}
 	_, err := io.Copy(w, &buf)
-	if err != nil{
+	if err != nil {
 		errorController.ErrorLogger.Println(err)
 		http.Redirect(w, r, "/505", http.StatusFound)
 		errorController.WD.Content = err.Error()
@@ -121,7 +142,7 @@ func (v *View) Flush(w http.ResponseWriter, r *http.Request, data interface{}) {
 		return
 	}
 	_, err := io.Copy(w, &buf)
-	if err != nil{
+	if err != nil {
 		errorController.ErrorLogger.Println(err)
 		http.Redirect(w, r, "/505", http.StatusFound)
 		errorController.WD.Content = err.Error()
@@ -131,7 +152,17 @@ func (v *View) Flush(w http.ResponseWriter, r *http.Request, data interface{}) {
 	}
 	w.(http.Flusher).Flush()
 }
-func layoutFiles() []string {
+func LayoutFiles() []string {
+	files, err := filepath.Glob(LayoutDir + "*" + TemplateExt)
+	if err != nil {
+		errorController.WD.Content = err.Error()
+		errorController.WD.Site = "Error generating template files"
+		errorController.WD.SendErrorWHWeb()
+		return nil
+	}
+	return files
+}
+func layoutReloadFiles() []string {
 	files, err := filepath.Glob(LayoutDir + "*" + TemplateExt)
 	if err != nil {
 		errorController.WD.Content = err.Error()
