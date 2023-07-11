@@ -79,7 +79,7 @@ func ReadInput() {
 	for input.Scan() {
 		switch input.Text() {
 		case "reload":
-			views.ReloadTemplates()
+			views.ReloadHtml()
 		}
 	}
 }

@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"html/template"
+	"neft.web/errorController"
 )
 
 type Template struct {
@@ -29,16 +30,16 @@ func InitTemplateController() {
 	}
 }
 
-func ReloadTemplates(files ...string) {
+func ReloadHtml() {
 
-	for _, i := range Templates {
-		i.View.Template = rreload(i.File)
-		fmt.Println("new view reloaded")
+	for key, template := range Templates {
+		template.View.Template = reload(template.File)
+		errorController.DebugLogger.Println("new view reloaded:", key)
 	}
-	fmt.Println("all views reloaded")
+	errorController.DebugLogger.Println("all views reloaded")
 }
 
-func rreload(files ...string) *template.Template {
+func reload(files ...string) *template.Template {
 	addTemplatePath(files)
 	addTemplateExt(files)
 	files = append(files, LayoutFiles()...)

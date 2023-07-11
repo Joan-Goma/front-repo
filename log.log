@@ -2029,3 +2029,153 @@ DEBUG: [0m2023/07/11 12:45:10 main.go:84: Configuring middleware...
 DEBUG: [0m2023/07/11 12:45:10 main.go:96: Loading routers
 [1;32m
 DEBUG: [0m2023/07/11 12:45:10 main.go:127: STARTING SERVER AT PORT: 9000
+[1;32m
+DEBUG: [0m2023/07/11 12:47:11 middleware.go:49: Printing stats
+-----os------stats---
+cpu system:  18.78 %
+cpu idle:    42.99 %
+memory used: 36267  mb
+memory free: 2986  mb
+--------------------
+[1;32m
+DEBUG: [0m2023/07/11 12:49:11 middleware.go:49: Printing stats
+-----os------stats---
+cpu system:  22.03 %
+cpu idle:    46.06 %
+memory used: 36235  mb
+memory free: 1877  mb
+--------------------
+[1;37m
+INFO: [0m2023/07/11 12:50:21 main.go:36: Starting web server...
+[1;32m
+DEBUG: [0m2023/07/11 12:50:21 main.go:38: Configuring static pages...
+[1;32m
+DEBUG: [0m2023/07/11 12:50:21 main.go:41: Configuring contact pages...
+[1;32m
+DEBUG: [0m2023/07/11 12:50:21 main.go:44: Configuring users pages...
+[1;32m
+DEBUG: [0m2023/07/11 12:50:21 main.go:47: Configuring liro modules...
+[1;32m
+DEBUG: [0m2023/07/11 12:50:21 main.go:84: Configuring middleware...
+[1;32m
+DEBUG: [0m2023/07/11 12:50:21 main.go:96: Loading routers
+[1;32m
+DEBUG: [0m2023/07/11 12:50:21 main.go:127: STARTING SERVER AT PORT: 9000
+[1;32m
+DEBUG: [0m2023/07/11 12:50:26 loadController.go:37: new view reloaded
+[1;32m
+DEBUG: [0m2023/07/11 12:50:26 loadController.go:37: new view reloaded
+[1;37m
+INFO: [0m2023/07/11 12:51:26 main.go:36: Starting web server...
+[1;32m
+DEBUG: [0m2023/07/11 12:51:26 main.go:38: Configuring static pages...
+[1;32m
+DEBUG: [0m2023/07/11 12:51:26 main.go:41: Configuring contact pages...
+[1;32m
+DEBUG: [0m2023/07/11 12:51:26 main.go:44: Configuring users pages...
+[1;32m
+DEBUG: [0m2023/07/11 12:51:26 main.go:47: Configuring liro modules...
+[1;32m
+DEBUG: [0m2023/07/11 12:51:26 main.go:84: Configuring middleware...
+[1;32m
+DEBUG: [0m2023/07/11 12:51:26 main.go:96: Loading routers
+[1;32m
+DEBUG: [0m2023/07/11 12:51:26 main.go:127: STARTING SERVER AT PORT: 9000
+[1;32m
+DEBUG: [0m2023/07/11 12:53:27 middleware.go:49: Printing stats
+-----os------stats---
+cpu system:  22.56 %
+cpu idle:    37.34 %
+memory used: 36557  mb
+memory free: 1055  mb
+--------------------
+[1;32m
+DEBUG: [0m2023/07/11 12:55:27 middleware.go:49: Printing stats
+-----os------stats---
+cpu system:  22.60 %
+cpu idle:    30.13 %
+memory used: 37040  mb
+memory free: 2474  mb
+--------------------
+[1;32m
+DEBUG: [0m2023/07/11 12:57:27 middleware.go:49: Printing stats
+-----os------stats---
+cpu system:  22.61 %
+cpu idle:    41.32 %
+memory used: 37122  mb
+memory free: 2936  mb
+--------------------
+[1;32m
+DEBUG: [0m2023/07/11 12:58:29 loadController.go:37: new view reloaded
+[1;32m
+DEBUG: [0m2023/07/11 12:58:29 loadController.go:37: new view reloaded
+[1;32m
+DEBUG: [0m2023/07/11 12:59:27 middleware.go:49: Printing stats
+-----os------stats---
+cpu system:  23.78 %
+cpu idle:    35.93 %
+memory used: 37261  mb
+memory free: 1174  mb
+--------------------
+[1;37m
+INFO: [0m2023/07/11 13:00:20 main.go:36: Starting web server...
+[1;32m
+DEBUG: [0m2023/07/11 13:00:20 main.go:38: Configuring static pages...
+[1;32m
+DEBUG: [0m2023/07/11 13:00:20 main.go:41: Configuring contact pages...
+[1;32m
+DEBUG: [0m2023/07/11 13:00:20 main.go:44: Configuring users pages...
+[1;32m
+DEBUG: [0m2023/07/11 13:00:20 main.go:47: Configuring liro modules...
+[1;32m
+DEBUG: [0m2023/07/11 13:00:20 main.go:84: Configuring middleware...
+[1;32m
+DEBUG: [0m2023/07/11 13:00:20 main.go:96: Loading routers
+[1;32m
+DEBUG: [0m2023/07/11 13:00:20 main.go:127: STARTING SERVER AT PORT: 9000
+[1;32m
+DEBUG: [0m2023/07/11 13:00:21 loadController.go:37: new view reloaded: {dashboard liro/index 0xc000127680}
+[1;32m
+DEBUG: [0m2023/07/11 13:00:21 loadController.go:37: new view reloaded: {dashboard liro/listUsers 0xc000127818}
+[1;37m
+INFO: [0m2023/07/11 13:01:18 main.go:36: Starting web server...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:18 main.go:38: Configuring static pages...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:18 main.go:41: Configuring contact pages...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:18 main.go:44: Configuring users pages...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:18 main.go:47: Configuring liro modules...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:18 main.go:84: Configuring middleware...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:18 main.go:96: Loading routers
+[1;32m
+DEBUG: [0m2023/07/11 13:01:18 main.go:127: STARTING SERVER AT PORT: 9000
+[1;32m
+DEBUG: [0m2023/07/11 13:01:23 loadController.go:37: new view reloaded: LiroMain
+[1;32m
+DEBUG: [0m2023/07/11 13:01:23 loadController.go:37: new view reloaded: LiroUserList
+[1;37m
+INFO: [0m2023/07/11 13:01:40 main.go:36: Starting web server...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:40 main.go:38: Configuring static pages...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:40 main.go:41: Configuring contact pages...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:40 main.go:44: Configuring users pages...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:40 main.go:47: Configuring liro modules...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:40 main.go:84: Configuring middleware...
+[1;32m
+DEBUG: [0m2023/07/11 13:01:40 main.go:96: Loading routers
+[1;32m
+DEBUG: [0m2023/07/11 13:01:40 main.go:127: STARTING SERVER AT PORT: 9000
+[1;32m
+DEBUG: [0m2023/07/11 13:01:47 loadController.go:37: new view reloaded: LiroMain
+[1;32m
+DEBUG: [0m2023/07/11 13:01:47 loadController.go:37: new view reloaded: LiroUserList
+[1;32m
+DEBUG: [0m2023/07/11 13:01:47 loadController.go:39: all views reloaded
