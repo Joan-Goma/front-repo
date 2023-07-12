@@ -41,27 +41,6 @@ func NewView(layout string, files ...string) *View {
 		Layout:   layout,
 	}
 }
-func NewReload(layout string, files ...string) *View {
-
-	files = append(files, LayoutFiles()...)
-	t, err := template.New("").Funcs(template.FuncMap{
-		"csrfField": func() (template.HTML, error) {
-			return "", errors.New("csrf is not implemented")
-		},
-	}).ParseFiles(files...)
-	if err != nil {
-		errorController.ErrorLogger.Println(err)
-		errorController.WD.Content = err.Error()
-		errorController.WD.Site = "Parsing templates"
-		errorController.WD.SendErrorWHWeb()
-		return nil
-	}
-
-	return &View{
-		Template: t,
-		Layout:   layout,
-	}
-}
 
 type View struct {
 	Template *template.Template
