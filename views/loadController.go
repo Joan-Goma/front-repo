@@ -17,17 +17,6 @@ var Templates map[string]Template
 
 func InitTemplateController() {
 	Templates = make(map[string]Template)
-
-	Templates["LiroMain"] = Template{
-		Layout: "dashboard",
-		File:   "liro/index",
-		View:   NewReload("dashboard", "views/liro/index.gohtml"),
-	}
-	Templates["LiroUserList"] = Template{
-		Layout: "dashboard",
-		File:   "liro/listUsers",
-		View:   NewReload("dashboard", "views/liro/listUsers.gohtml"),
-	}
 }
 
 func ReloadHtml() {

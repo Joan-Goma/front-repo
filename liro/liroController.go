@@ -12,9 +12,19 @@ type Liro struct {
 }
 
 func NewLiro() *Liro {
+	views.Templates["LiroMain"] = views.Template{
+		Layout: "dashboard",
+		File:   "liro/index",
+		View:   views.NewView("dashboard", "liro/index"),
+	}
+	views.Templates["LiroUserList"] = views.Template{
+		Layout: "dashboard",
+		File:   "liro/listUsers",
+		View:   views.NewView("dashboard", "liro/listUsers"),
+	}
 	return &Liro{
-			LiroMain:     views.Templates["LiroMain"].View,
-			LiroUserList: views.Templates["LiroUserList"].View,
+		LiroMain:     views.Templates["LiroMain"].View,
+		LiroUserList: views.Templates["LiroUserList"].View,
 	}
 }
 

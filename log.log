@@ -2179,3 +2179,155 @@ DEBUG: [0m2023/07/11 13:01:47 loadController.go:37: new view reloaded: LiroMain
 DEBUG: [0m2023/07/11 13:01:47 loadController.go:37: new view reloaded: LiroUserList
 [1;32m
 DEBUG: [0m2023/07/11 13:01:47 loadController.go:39: all views reloaded
+[1;37m
+INFO: [0m2023/07/12 07:17:23 main.go:36: Starting web server...
+[1;32m
+DEBUG: [0m2023/07/12 07:17:23 main.go:38: Configuring static pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:17:23 main.go:41: Configuring contact pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:17:23 main.go:44: Configuring users pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:17:23 main.go:47: Configuring liro modules...
+[1;32m
+DEBUG: [0m2023/07/12 07:17:23 main.go:84: Configuring middleware...
+[1;32m
+DEBUG: [0m2023/07/12 07:17:23 main.go:96: Loading routers
+[1;32m
+DEBUG: [0m2023/07/12 07:17:23 main.go:127: STARTING SERVER AT PORT: 9000
+[1;32m
+DEBUG: [0m2023/07/12 07:19:24 middleware.go:49: Printing stats
+-----os------stats---
+cpu system:  11.92 %
+cpu idle:    52.85 %
+memory used: 19126  mb
+memory free: 1422  mb
+--------------------
+[1;32m
+DEBUG: [0m2023/07/12 07:21:24 middleware.go:49: Printing stats
+-----os------stats---
+cpu system:  11.96 %
+cpu idle:    74.46 %
+memory used: 19487  mb
+memory free: 741  mb
+--------------------
+[1;37m
+INFO: [0m2023/07/12 07:22:06 main.go:36: Starting web server...
+[1;32m
+DEBUG: [0m2023/07/12 07:22:06 main.go:38: Configuring static pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:22:06 main.go:41: Configuring contact pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:22:06 main.go:44: Configuring users pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:22:06 main.go:47: Configuring liro modules...
+[1;32m
+DEBUG: [0m2023/07/12 07:22:06 main.go:84: Configuring middleware...
+[1;32m
+DEBUG: [0m2023/07/12 07:22:06 main.go:96: Loading routers
+[1;32m
+DEBUG: [0m2023/07/12 07:22:06 main.go:127: STARTING SERVER AT PORT: 9000
+[1;32m
+DEBUG: [0m2023/07/12 07:22:39 loadController.go:26: new view reloaded: Login
+[1;32m
+DEBUG: [0m2023/07/12 07:22:39 loadController.go:26: new view reloaded: ForgotPassword
+[1;32m
+DEBUG: [0m2023/07/12 07:22:39 loadController.go:26: new view reloaded: ResetPassword
+[1;32m
+DEBUG: [0m2023/07/12 07:22:39 loadController.go:26: new view reloaded: LiroMain
+[1;32m
+DEBUG: [0m2023/07/12 07:22:39 loadController.go:26: new view reloaded: LiroUserList
+[1;32m
+DEBUG: [0m2023/07/12 07:22:39 loadController.go:26: new view reloaded: SignUp
+[1;32m
+DEBUG: [0m2023/07/12 07:22:39 loadController.go:28: all views reloaded
+[1;32m
+DEBUG: [0m2023/07/12 07:24:07 middleware.go:49: Printing stats
+-----os------stats---
+cpu system:  4.90 %
+cpu idle:    81.20 %
+memory used: 19559  mb
+memory free: 627  mb
+--------------------
+[1;32m
+DEBUG: [0m2023/07/12 07:25:02 loadController.go:26: new view reloaded: LiroMain
+[1;32m
+DEBUG: [0m2023/07/12 07:25:02 loadController.go:26: new view reloaded: LiroUserList
+[1;32m
+DEBUG: [0m2023/07/12 07:25:02 loadController.go:26: new view reloaded: SignUp
+[1;32m
+DEBUG: [0m2023/07/12 07:25:02 loadController.go:26: new view reloaded: Login
+[1;32m
+DEBUG: [0m2023/07/12 07:25:02 loadController.go:26: new view reloaded: ForgotPassword
+[1;32m
+DEBUG: [0m2023/07/12 07:25:02 loadController.go:26: new view reloaded: ResetPassword
+[1;32m
+DEBUG: [0m2023/07/12 07:25:02 loadController.go:28: all views reloaded
+[1;32m
+DEBUG: [0m2023/07/12 07:26:07 middleware.go:49: Printing stats
+-----os------stats---
+cpu system:  11.90 %
+cpu idle:    61.76 %
+memory used: 19290  mb
+memory free: 1494  mb
+--------------------
+[1;37m
+INFO: [0m2023/07/12 07:27:59 main.go:36: Starting web server...
+[1;32m
+DEBUG: [0m2023/07/12 07:27:59 main.go:38: Configuring static pages...
+[1;31m
+ERROR: [0m2023/07/12 07:27:59 view.go:32: open views/static/500.gohtml: no such file or directory
+[1;37m
+INFO: [0m2023/07/12 07:28:26 main.go:36: Starting web server...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:26 main.go:38: Configuring static pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:26 main.go:41: Configuring contact pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:26 main.go:44: Configuring users pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:26 main.go:47: Configuring liro modules...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:26 main.go:84: Configuring middleware...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:26 main.go:96: Loading routers
+[1;32m
+DEBUG: [0m2023/07/12 07:28:26 main.go:127: STARTING SERVER AT PORT: 9000
+[1;31m
+ERROR: [0m2023/07/12 07:28:26 view.go:96: html/template: "boostrap" is undefined
+[1;37m
+INFO: [0m2023/07/12 07:28:53 main.go:36: Starting web server...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:53 main.go:38: Configuring static pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:53 main.go:41: Configuring contact pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:53 main.go:44: Configuring users pages...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:53 main.go:47: Configuring liro modules...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:53 main.go:84: Configuring middleware...
+[1;32m
+DEBUG: [0m2023/07/12 07:28:53 main.go:96: Loading routers
+[1;32m
+DEBUG: [0m2023/07/12 07:28:53 main.go:127: STARTING SERVER AT PORT: 9000
+[1;32m
+DEBUG: [0m2023/07/12 07:29:27 loadController.go:26: new view reloaded: Home
+[1;32m
+DEBUG: [0m2023/07/12 07:29:27 loadController.go:26: new view reloaded: 505
+[1;32m
+DEBUG: [0m2023/07/12 07:29:27 loadController.go:26: new view reloaded: ResetPassword
+[1;32m
+DEBUG: [0m2023/07/12 07:29:27 loadController.go:26: new view reloaded: LiroUserList
+[1;32m
+DEBUG: [0m2023/07/12 07:29:27 loadController.go:26: new view reloaded: 404
+[1;32m
+DEBUG: [0m2023/07/12 07:29:27 loadController.go:26: new view reloaded: SignUp
+[1;32m
+DEBUG: [0m2023/07/12 07:29:27 loadController.go:26: new view reloaded: Login
+[1;32m
+DEBUG: [0m2023/07/12 07:29:27 loadController.go:26: new view reloaded: ForgotPassword
+[1;32m
+DEBUG: [0m2023/07/12 07:29:27 loadController.go:26: new view reloaded: LiroMain
+[1;32m
+DEBUG: [0m2023/07/12 07:29:27 loadController.go:28: all views reloaded
