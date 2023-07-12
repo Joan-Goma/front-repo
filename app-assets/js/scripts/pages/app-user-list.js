@@ -14,13 +14,11 @@ function getCookie() {
 }
 $(function () {
   var roleName = {
-              1: "Soldado",
-              2: "Traidor",
-              3: "Lider equipo",
-              4: "Lider peloton",
-              5: "Comandante",
-              6: "Organizador campo",
-              7: "Admin",
+              1: "Usuario",
+              2: "Centinela",
+              3: "Lider Centinela",
+              4: "test",
+              5: "Admin",
             };
   ('use strict');
 

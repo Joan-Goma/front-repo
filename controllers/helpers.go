@@ -1,13 +1,16 @@
 package controllers
 
 import (
+	"bufio"
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 
 	"github.com/gorilla/schema"
 	"neft.web/errorController"
+	"neft.web/views"
 )
 
 func ParseForm(r *http.Request, dst interface{}) error {
@@ -63,9 +66,20 @@ func readAPIAnswer(resp *http.Response) (Response, error) {
 	var answer Response
 	err = json.Unmarshal(bodyBytes, &answer)
 	if err != nil {
-    errorController.ErrorLogger.Println(string(bodyBytes))
+		errorController.ErrorLogger.Println(string(bodyBytes))
 		errorController.ErrorLogger.Println("Error reading answer from answer request: ", err)
 		return Response{}, err
 	}
 	return answer, nil
+}
+
+// ReadInput read in every moment the console and change maintenance and debug mode
+func ReadInput() {
+	input := bufio.NewScanner(os.Stdin)
+	for input.Scan() {
+		switch input.Text() {
+		case "reload":
+			views.ReloadHtml()
+		}
+	}
 }

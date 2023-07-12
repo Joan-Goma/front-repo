@@ -22,7 +22,7 @@ func NewView(layout string, files ...string) *View {
 
 	addTemplatePath(files)
 	addTemplateExt(files)
-	files = append(files, layoutFiles()...)
+	files = append(files, LayoutFiles()...)
 	t, err := template.New("").Funcs(template.FuncMap{
 		"csrfField": func() (template.HTML, error) {
 			return "", errors.New("csrf is not implemented")
@@ -80,7 +80,7 @@ func (v *View) Render(w http.ResponseWriter, r *http.Request, data interface{}) 
 		return
 	}
 	_, err := io.Copy(w, &buf)
-	if err != nil{
+	if err != nil {
 		errorController.ErrorLogger.Println(err)
 		http.Redirect(w, r, "/505", http.StatusFound)
 		errorController.WD.Content = err.Error()
@@ -89,49 +89,8 @@ func (v *View) Render(w http.ResponseWriter, r *http.Request, data interface{}) 
 		return
 	}
 }
-func (v *View) Flush(w http.ResponseWriter, r *http.Request, data interface{}) {
-	if r.RequestURI == "/" {
-		r.RequestURI = "/#contact"
-	}
-	w.Header().Set("Content-type", "text/html")
-	var vd Data
 
-	switch d := data.(type) {
-
-	case *Data:
-		vd = *d
-	default:
-		vd.Yield = d
-	}
-	vd.Active = r.URL.Path
-	var buf bytes.Buffer
-	csrfField := csrf.TemplateField(r)
-	tpl := v.Template.Funcs(template.FuncMap{
-		"csrfField": func() template.HTML {
-			return csrfField
-		},
-	})
-
-	if err := tpl.ExecuteTemplate(&buf, v.Layout, vd); err != nil {
-		errorController.ErrorLogger.Println(err)
-		errorController.WD.Content = err.Error()
-		errorController.WD.Site = "Error executing template"
-		errorController.WD.SendErrorWHWeb()
-		http.Redirect(w, r, "/505", http.StatusFound)
-		return
-	}
-	_, err := io.Copy(w, &buf)
-	if err != nil{
-		errorController.ErrorLogger.Println(err)
-		http.Redirect(w, r, "/505", http.StatusFound)
-		errorController.WD.Content = err.Error()
-		errorController.WD.Site = "Error executing template"
-		errorController.WD.SendErrorWHWeb()
-		return
-	}
-	w.(http.Flusher).Flush()
-}
-func layoutFiles() []string {
+func LayoutFiles() []string {
 	files, err := filepath.Glob(LayoutDir + "*" + TemplateExt)
 	if err != nil {
 		errorController.WD.Content = err.Error()

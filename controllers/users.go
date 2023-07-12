@@ -12,11 +12,31 @@ import (
 )
 
 func NewUsers() *Users {
+	views.Templates["SignUp"] = views.Template{
+		Layout: "dashboard",
+		File:   "users/register",
+		View:   views.NewView("dashboard", "users/register"),
+	}
+	views.Templates["Login"] = views.Template{
+		Layout: "dashboard",
+		File:   "users/login",
+		View:   views.NewView("dashboard", "users/login"),
+	}
+	views.Templates["ForgotPassword"] = views.Template{
+		Layout: "dashboard",
+		File:   "users/forgot_pw",
+		View:   views.NewView("dashboard", "users/forgot_pw"),
+	}
+	views.Templates["ResetPassword"] = views.Template{
+		Layout: "dashboard",
+		File:   "users/reset_pw",
+		View:   views.NewView("dashboard", "users/reset_pw"),
+	}
 	return &Users{
-		NewView:      views.NewView("dashboard", "users/register"),
-		LoginView:    views.NewView("dashboard", "users/login"),
-		ForgotPwView: views.NewView("dashboard", "users/forgot_pw"),
-		ResetPwView:  views.NewView("dashboard", "users/reset_pw"),
+		NewView:      views.Templates["SignUp"].View,
+		LoginView:    views.Templates["Login"].View,
+		ForgotPwView: views.Templates["ForgotPassword"].View,
+		ResetPwView:  views.Templates["ResetPassword"].View,
 	}
 }
 
@@ -83,25 +103,25 @@ func (u *Users) Create(w http.ResponseWriter, r *http.Request) {
 		u.NewView.Render(w, r, &vd)
 	}
 
-  req, err := http.NewRequest(http.MethodPut, "https://test.joan-goma.repl.co/v1/auth", bytes.NewBuffer(personJSON))
-    if err != nil {
-        // handle error
-    }
-  
-    req.Header.Set("Content-Type", "application/json")
-	
-   client := &http.Client{}
-    resp, err := client.Do(req)
-    if err != nil {
-    vd.Alert = &views.Alert{
+	req, err := http.NewRequest(http.MethodPut, "https://test.joan-goma.repl.co/v1/auth", bytes.NewBuffer(personJSON))
+	if err != nil {
+		// handle error
+	}
+
+	req.Header.Set("Content-Type", "application/json")
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		vd.Alert = &views.Alert{
 			Level:   views.AlertLvlError,
 			Message: views.AlertMsgGeneric,
 		}
 		errorController.ErrorLogger.Println("Error sending request login")
 		u.NewView.Render(w, r, &vd)
 		return
-    }
-    defer resp.Body.Close()
+	}
+	defer resp.Body.Close()
 
 	if resp.StatusCode != 201 {
 		answer, err := readAPIAnswer(resp)
@@ -162,7 +182,7 @@ func (u *Users) Login(w http.ResponseWriter, r *http.Request) {
 		u.LoginView.Render(w, r, &vd)
 	}
 
-	resp, err := http.Post("https://test.joan-goma.repl.co/api/login", "application/json", bytes.NewBuffer(personJSON))
+	resp, err := http.Post("https://test.joan-goma.repl.co/v1/auth", "application/json", bytes.NewBuffer(personJSON))
 	if err != nil {
 		vd.Alert = &views.Alert{
 			Level:   views.AlertLvlError,

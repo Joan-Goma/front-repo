@@ -11,10 +11,25 @@ import (
 )
 
 func NewStatic() *Static {
+	views.Templates["Home"] = views.Template{
+		Layout: "bootstrap",
+		File:   "static/home",
+		View:   views.NewView("bootstrap", "static/home"),
+	}
+	views.Templates["404"] = views.Template{
+		Layout: "error",
+		File:   "static/404",
+		View:   views.NewView("error", "static/404"),
+	}
+	views.Templates["505"] = views.Template{
+		Layout: "error",
+		File:   "static/505",
+		View:   views.NewView("error", "static/505"),
+	}
 	return &Static{
-		Home:     views.NewView("bootstrap", "static/home"),
-		NotFound: views.NewView("error", "static/404"),
-		Error:    views.NewView("error", "static/505"),
+		Home:     views.Templates["Home"].View,
+		NotFound: views.Templates["404"].View,
+		Error:    views.Templates["505"].View,
 	}
 }
 
