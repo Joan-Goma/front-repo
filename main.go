@@ -38,9 +38,6 @@ func main() {
 	errorController.DebugLogger.Println("Configuring static pages...")
 	staticC := controllers.NewStatic()
 
-	errorController.DebugLogger.Println("Configuring contact pages...")
-	contactC := controllers.NewContact()
-
 	errorController.DebugLogger.Println("Configuring users pages...")
 	userC := controllers.NewUsers()
 
@@ -96,7 +93,6 @@ func main() {
 	errorController.DebugLogger.Println("Loading routers")
 
 	r.HandleFunc("/", staticC.NewHome).Methods("GET")
-	r.HandleFunc("/", contactC.ContactForm).Methods("POST")
 
 	r.NotFoundHandler = staticC.NotFound
 	r.Handle("/505", staticC.Error).Methods("GET")

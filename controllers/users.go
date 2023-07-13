@@ -12,31 +12,11 @@ import (
 )
 
 func NewUsers() *Users {
-	views.Templates["SignUp"] = views.Template{
-		Layout: "dashboard",
-		File:   "users/register",
-		View:   views.NewView("dashboard", "users/register"),
-	}
-	views.Templates["Login"] = views.Template{
-		Layout: "dashboard",
-		File:   "users/login",
-		View:   views.NewView("dashboard", "users/login"),
-	}
-	views.Templates["ForgotPassword"] = views.Template{
-		Layout: "dashboard",
-		File:   "users/forgot_pw",
-		View:   views.NewView("dashboard", "users/forgot_pw"),
-	}
-	views.Templates["ResetPassword"] = views.Template{
-		Layout: "dashboard",
-		File:   "users/reset_pw",
-		View:   views.NewView("dashboard", "users/reset_pw"),
-	}
 	return &Users{
-		NewView:      views.Templates["SignUp"].View,
-		LoginView:    views.Templates["Login"].View,
-		ForgotPwView: views.Templates["ForgotPassword"].View,
-		ResetPwView:  views.Templates["ResetPassword"].View,
+		NewView:      views.CreateView("SignUp", "dashboard", "users/register"),
+		LoginView:    views.CreateView("Login", "dashboard", "users/login"),
+		ForgotPwView: views.CreateView("ForgotPassword", "dashboard", "users/forgot_pw"),
+		ResetPwView:  views.CreateView("ResetPassword", "dashboard", "users/reset_pw"),
 	}
 }
 

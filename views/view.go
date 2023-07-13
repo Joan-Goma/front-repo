@@ -18,7 +18,7 @@ var (
 	TemplateExt string = ".gohtml"
 )
 
-func NewView(layout string, files ...string) *View {
+func newView(layout string, files ...string) *View {
 
 	addTemplatePath(files)
 	addTemplateExt(files)

@@ -43,3 +43,12 @@ func reload(files ...string) *template.Template {
 	return t
 
 }
+
+func CreateView(name, layout, template string) *View {
+	Templates[name] = Template{
+		Layout: layout,
+		File:   template,
+		View:   newView(layout, template),
+	}
+	return Templates[name].View
+}
